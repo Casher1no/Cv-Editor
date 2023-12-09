@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Database;
+
+use Doctrine\DBAL\Connection;
+use Doctrine\DBAL\DriverManager;
+use Doctrine\DBAL\Exception;
+
+class DatabasePDO
+{
+    private static ?Connection $connection = null;
+
+    public static function connection()
+    {
+        if (self::$connection === null) {
+            $connectionParams = [
+                'dbname' => $_ENV['DBNAME'],
+                'user' => $_ENV['DBUSER'],
+                'password' => $_ENV['PASSWORD'],
+                'host' => $_ENV['HOST'],
+                'driver' => $_ENV['DRIVER'],
+            ];
+            try {
+                self::$connection = DriverManager::getConnection($connectionParams);
+            } catch (Exception $e) {
+                throw new \Exception($e->getMessage());
+            }
+        }
+        return self::$connection;
+    }
+}
