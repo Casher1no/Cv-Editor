@@ -2,20 +2,20 @@
 
 namespace App\Models\Cv;
 
-class CvSkills
+class CvCustomField
 {
-    private string $name;
+    private string $field;
     private string $description;
 
-    public function __construct(string $name, string $description)
+    public function __construct(string $field, string $description)
     {
-        $this->name = $name;
+        $this->field = $field;
         $this->description = $description;
     }
 
-    public function name(): string
+    public function field(): string
     {
-        return $this->name;
+        return $this->field;
     }
 
     public function description(): string

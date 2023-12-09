@@ -1,6 +1,6 @@
 <?php
 
-namespace app;
+namespace App;
 
 class Route
 {
@@ -15,25 +15,16 @@ class Route
         $this->handler = $handler;
     }
 
-    /**
-     * @return array
-     */
     public function getHandler(): array
     {
         return $this->handler;
     }
 
-    /**
-     * @return string
-     */
     public function getMethod(): string
     {
         return $this->method;
     }
 
-    /**
-     * @return string
-     */
     public function getRoute(): string
     {
         return $this->route;

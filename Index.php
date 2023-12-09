@@ -2,11 +2,10 @@
 
 require_once 'vendor/autoload.php';
 
-use app\JsonResponse;
-use app\Redirect;
-use app\Route;
-use app\Routes;
-use app\View;
+use App\Redirect;
+use App\Route;
+use App\Routes;
+use App\View;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
@@ -62,7 +61,7 @@ switch ($routeInfo[0]) {
 
         if ($response instanceof View) {
             try {
-                echo $twig->render($response->getPath(), $response->getVars());
+                echo $twig->render($response->getPath() . '.html', $response->getVars());
             } catch (\Twig\Error\Error $e) {
                 echo 'Twig Exception: ' . $e->getMessage();
                 die;
@@ -71,10 +70,6 @@ switch ($routeInfo[0]) {
 
         if ($response instanceof Redirect) {
             header('Location: ' . $response->getLocation());
-        }
-
-        if ($response instanceof JsonResponse) {
-            echo $response->getResponse();
         }
 
         break;
