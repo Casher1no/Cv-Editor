@@ -4,18 +4,18 @@ namespace App\Models\Cv;
 
 class CvCustomField
 {
-    private string $field;
+    private string $name;
     private string $description;
 
     public function __construct(string $field, string $description)
     {
-        $this->field = $field;
+        $this->name = $field;
         $this->description = $description;
     }
 
-    public function field(): string
+    public function name(): string
     {
-        return $this->field;
+        return $this->name;
     }
 
     public function description(): string

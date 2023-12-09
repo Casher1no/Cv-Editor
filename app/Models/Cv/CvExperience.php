@@ -2,19 +2,19 @@
 
 namespace App\Models\Cv;
 
-class CvWorkExperience
+class CvExperience
 {
     private string $name;
     private string $profession;
     private string $workload;
-    private string $workExperience;
+    private string $experience;
 
     public function __construct(string $name, string $profession, string $workload, string $workExperience)
     {
         $this->name = $name;
         $this->profession = $profession;
         $this->workload = $workload;
-        $this->workExperience = $workExperience;
+        $this->experience = $workExperience;
     }
 
     public function name(): string
@@ -32,8 +32,8 @@ class CvWorkExperience
         return $this->workload;
     }
 
-    public function workExperience(): string
+    public function experience(): string
     {
-        return $this->workExperience;
+        return $this->experience;
     }
 }
