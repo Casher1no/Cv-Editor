@@ -4,13 +4,19 @@ namespace App\Models\Cv;
 
 class CvAddress
 {
-    private string $country;
-    private string $index;
-    private string $city;
-    private string $street;
-    private string $number;
+    private ?string $country;
+    private ?string $index;
+    private ?string $city;
+    private ?string $street;
+    private ?string $number;
 
-    public function __construct(string $country, string $index, string $city, string $street, string $number)
+    public function __construct(
+        string $country = null,
+        string $index = null,
+        string $city = null,
+        string $street = null,
+        string $number = null
+    )
     {
         $this->country = $country;
         $this->index = $index;

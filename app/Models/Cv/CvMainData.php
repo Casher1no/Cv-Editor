@@ -9,13 +9,6 @@ class CvMainData
     private string $phoneNumber;
     private string $email;
 
-    public function __construct(string $name, string $surname, string $phoneNumber, string $email)
-    {
-        $this->name = $name;
-        $this->surname = $surname;
-        $this->phoneNumber = $phoneNumber;
-        $this->email = $email;
-    }
 
     public function name(): string
     {

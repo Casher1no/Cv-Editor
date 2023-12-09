@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\View;
 
-class CvController
+final class CvController
 {
     public function selection(): View
     {

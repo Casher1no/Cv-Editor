@@ -2,7 +2,7 @@
 
 namespace App\Models\Cv;
 
-class CvSkills
+class CvSkill
 {
     private string $name;
     private string $description;
