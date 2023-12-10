@@ -2,6 +2,10 @@
 
 namespace App\Controllers;
 
+use App\Database\Database;
+use App\Entity\Cv\Cv;
+use App\Entity\Cv\CvEducation;
+use App\Redirect;
 use App\View;
 
 final class CvController
@@ -11,8 +15,19 @@ final class CvController
         return new View('index');
     }
 
-    public function create(): View
+    public function create(): Redirect
     {
-        return new View('Cv/create');
+        $cv = new Cv();
+
+        $education = new CvEducation();
+        $education->setName("RTK");
+
+        $cv->education()->add($education);
+
+        Database::em()->persist($cv);
+
+        Database::em()->flush();
+
+        return new Redirect('/');
     }
 }

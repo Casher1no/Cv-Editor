@@ -23,11 +23,11 @@ class CvEducation
     private string $name;
     #[Column(nullable: true)]
     private string $faculty;
-    #[Column(nullable: true)]
+    #[Column(name: 'study_program',nullable: true)]
     private string $studyProgram;
-    #[Column(nullable: true)]
+    #[Column(name: 'education_level',nullable: true)]
     private string $educationLevel;
-    #[Column(nullable: true)]
+    #[Column(name: 'time_spend_in_studies', nullable: true)]
     private string $timeSpendInStudies;
     #[Column(nullable: true)]
     private string $status;

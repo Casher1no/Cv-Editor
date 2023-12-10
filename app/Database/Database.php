@@ -10,11 +10,11 @@ use Doctrine\ORM\Tools\Setup;
 
 class Database
 {
-    private static ?Connection $entityManager = null;
+    private static ?EntityManager $em = null;
 
-    public static function entityManager()
+    public static function em()
     {
-        if (self::$entityManager === null) {
+        if (self::$em === null) {
             $connectionParams = [
                 'dbname' => $_ENV['DBNAME'],
                 'user' => $_ENV['DBUSER'],
@@ -23,11 +23,11 @@ class Database
                 'driver' => $_ENV['DRIVER'],
             ];
 
-            self::$entityManager = EntityManager::create(
+            self::$em = EntityManager::create(
                 $connectionParams,
-                Setup::createAttributeMetadataConfiguration([__DIR__ . '/Entity'])
+                Setup::createAttributeMetadataConfiguration([__DIR__ . '/Entity/Cv'])
             );
         }
-        return self::$entityManager;
+        return self::$em;
     }
 }

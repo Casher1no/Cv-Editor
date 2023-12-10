@@ -23,7 +23,7 @@ class CvMainData
     private string $name;
     #[Column(nullable: true)]
     private string $surname;
-    #[Column(nullable: true)]
+    #[Column(name: 'phone_number',nullable: true)]
     private string $phoneNumber;
     #[Column(nullable: true)]
     private string $email;

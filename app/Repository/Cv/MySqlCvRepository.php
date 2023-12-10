@@ -9,7 +9,7 @@ class MySqlCvRepository implements CvRepository
 {
     #[\Override] public function create(Cv $cv): void
     {
-        Database::entityManager()->persist($cv);
+        Database::em()->persist($cv);
     }
 
     #[\Override] public function edit(Cv $cv): void
