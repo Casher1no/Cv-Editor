@@ -2,7 +2,6 @@
 
 namespace App\Entity\Cv;
 
-use App\Enums\SchoolStatus;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;

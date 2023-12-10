@@ -21,15 +21,15 @@ class CvAddress
     #[Column(name: 'cv_id')]
     private int $cvId;
     #[Column(nullable: true)]
-    private string $country;
+    private string $country = '';
     #[Column(nullable: true)]
-    private string $index;
+    private string $index = '';
     #[Column(nullable: true)]
-    private string $city;
+    private string $city = '';
     #[Column(nullable: true)]
-    private string $street;
+    private string $street = '';
     #[Column(nullable: true)]
-    private string $number;
+    private string $number = '';
     #[OneToOne(inversedBy: 'address')]
     private Cv $cv;
 

@@ -43,3 +43,16 @@ body {
     margin-left: 200px;
     padding-left: 20px;
 }
+
+.cancel{
+    background-color: #ff8787;
+    color: black !important;
+}
+
+.cancel:hover{
+    background-color: #ff4b4b !important;
+}
+
+.button-default-size{
+    width: 200px;
+}

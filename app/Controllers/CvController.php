@@ -9,6 +9,8 @@ use App\Services\Cv\Delete\DeleteCvService;
 use App\Services\Cv\Get\GetCvRequest;
 use App\Services\Cv\Get\GetCvService;
 use App\Services\Cv\GetAll\GetAllCvService;
+use App\Services\Cv\Save\SaveCvRequest;
+use App\Services\Cv\Save\SaveCvService;
 use App\View;
 use Psr\Container\ContainerInterface;
 
@@ -55,5 +57,13 @@ class CvController
         return new View('Cv/edit', [
             'cv' => $cv
         ]);
+    }
+
+    public function save(array $vars): Redirect
+    {
+        $service = $this->container->get(SaveCvService::class);
+        $service->execute(new SaveCvRequest((int)$vars['id'] ,$_POST));
+
+        return new Redirect('/');
     }
 }

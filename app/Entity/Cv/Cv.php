@@ -33,7 +33,7 @@ class Cv
     private Collection $skills;
     #[OneToMany(mappedBy: 'cv', targetEntity: CvCustomField::class, cascade: ['persist', 'remove'])]
     private Collection $customFields;
-    #[Column(name: 'created_at',)]
+    #[Column(name: 'created_at')]
     private \DateTime $createdAt;
 
     public function __construct()
