@@ -14,5 +14,5 @@ interface CvRepository
 
     public function save(): void;
 
-    public function delete(Cv $cv): void;
+    public function delete($cv): void;
 }

@@ -7,7 +7,6 @@ use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
-use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\OneToOne;
 use Doctrine\ORM\Mapping\Table;
 
@@ -22,8 +21,8 @@ class CvAddress
     private int $cvId;
     #[Column(nullable: true)]
     private string $country = '';
-    #[Column(nullable: true)]
-    private string $index = '';
+    #[Column(name: 'address_index', nullable: true)]
+    private string $addressIndex = '';
     #[Column(nullable: true)]
     private string $city = '';
     #[Column(nullable: true)]
@@ -53,14 +52,14 @@ class CvAddress
         $this->country = $country;
     }
 
-    public function index(): string
+    public function addressIndex(): string
     {
-        return $this->index;
+        return $this->addressIndex;
     }
 
-    public function setIndex(string $index): void
+    public function setAddressIndex(string $addressIndex): void
     {
-        $this->index = $index;
+        $this->addressIndex = $addressIndex;
     }
 
     public function city(): string

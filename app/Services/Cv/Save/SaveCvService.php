@@ -36,14 +36,17 @@ class SaveCvService
 
         $address = new CvAddress();
         $address->setCountry($data['country']);
-        $address->setIndex($data['index']);
+        $address->setAddressIndex($data['index']);
         $address->setCity($data['city']);
         $address->setStreet($data['street']);
         $address->setNumber($data['number']);
 
         $cv->addAddress($address);
 
-        $cv->education()->clear();
+        foreach ($cv->education() as $education) {
+            $this->repository->delete($education);
+        }
+
         if (isset($data['educationName'])) {
             for ($i = 0; $i < count($data['educationName']); $i++) {
                 $education = new CvEducation();
@@ -58,7 +61,10 @@ class SaveCvService
             }
         }
 
-        $cv->education()->clear();
+        foreach ($cv->experience() as $experience) {
+            $this->repository->delete($experience);
+        }
+
         if (isset($data['experienceName'])) {
             for ($i = 0; $i < count($data['experienceName']); $i++) {
                 $experience = new CvExperience();
@@ -71,7 +77,10 @@ class SaveCvService
             }
         }
 
-        $cv->skills()->clear();
+        foreach ($cv->skills() as $skill) {
+            $this->repository->delete($skill);
+        }
+
         if (isset($data['skillName'])) {
             for ($i = 0; $i < count($data['skillName']); $i++) {
                 $skill = new CvSkill();
@@ -82,7 +91,10 @@ class SaveCvService
             }
         }
 
-        $cv->customFields()->clear();
+        foreach ($cv->customFields() as $customField) {
+            $this->repository->delete($customField);
+        }
+
         if (isset($data['customFieldName'])) {
             for ($i = 0; $i < count($data['customFieldName']); $i++) {
                 $customField = new CvCustomField();
