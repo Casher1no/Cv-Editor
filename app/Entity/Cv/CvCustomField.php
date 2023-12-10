@@ -19,9 +19,9 @@ class CvCustomField
     #[Column(name: 'cv_id')]
     private int $cvId;
     #[Column(nullable: true)]
-    private string $name;
+    private string $name = '';
     #[Column(nullable: true)]
-    private string $description;
+    private string $description = '';
     #[ManyToOne(inversedBy: 'customFields')]
     private Cv $cv;
     public function id(): int
@@ -54,4 +54,13 @@ class CvCustomField
         $this->description = $description;
     }
 
+    public function cv(): Cv
+    {
+        return $this->cv;
+    }
+
+    public function setCv(Cv $cv): void
+    {
+        $this->cv = $cv;
+    }
 }

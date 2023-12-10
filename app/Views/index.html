@@ -14,35 +14,49 @@ CV Editor
         <thead>
         <tr>
             <th scope="col">Curriculum vitae</th>
+            <th scope="col">Created At</th>
             <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
+        {% for cv in data['cv'] %}
         <tr>
-            <th scope="row">MyCv</th>
+            <th scope="row">{{ cv.name() }}</th>
+            <td>{{ cv.createdAt().format('Y-m-d H:i:s') }}</td>
             <td>
-                <a href="#" class="btn btn-outline-primary">Edit</a>
+                <a href="/cv/edit/{{ cv.id() }}" class="btn btn-outline-primary">Edit</a>
                 <a href="#" class="btn btn-outline-success">Inspect</a>
-                <a href="#" onclick="return confirm('Are you sure you want to delete this CV?')" class="btn btn-outline-danger">Delete</a>
+                <a data-cv-id="{{ cv.id() }}" onclick="confirmAndDelete()" class="btn btn-outline-danger">Delete</a>
             </td>
         </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>
-                <a href="#" class="btn btn-outline-primary">Edit</a>
-                <a href="#" class="btn btn-outline-success">Inspect</a>
-                <a href="#" class="btn btn-outline-danger">Delete</a>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>
-                <a href="#" class="btn btn-outline-primary">Edit</a>
-                <a href="#" class="btn btn-outline-success">Inspect</a>
-                <a href="#" class="btn btn-outline-danger">Delete</a>
-            </td>
-        </tr>
+        {% endfor %}
         </tbody>
     </table>
 </div>
+
+<script>
+    function confirmAndDelete() {
+        const cvId = event.target.getAttribute('data-cv-id');
+
+        if (confirm('Are you sure you want to delete this CV?')) {
+            fetch('/cv/delete/' + cvId, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({}),
+            })
+                .then(response => {
+                    if (response.ok) {
+                        window.location.reload();
+                    } else {
+                        console.error('Error deleting CV:', response.statusText);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error deleting CV:', error);
+                });
+        }
+    }
+</script>
 {% endblock %}

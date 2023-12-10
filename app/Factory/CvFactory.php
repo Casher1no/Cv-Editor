@@ -10,9 +10,6 @@ final class CvFactory
 {
     public static function create(): Cv
     {
-        $main = new CvMainData();
-        $address = new CvAddress();
-
-        return new Cv($main, $address);
+        return new Cv();
     }
 }

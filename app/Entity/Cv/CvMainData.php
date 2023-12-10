@@ -6,7 +6,6 @@ use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
-use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\OneToOne;
 use Doctrine\ORM\Mapping\Table;
 
@@ -20,13 +19,13 @@ class CvMainData
     #[Column(name: 'cv_id')]
     private int $cvId;
     #[Column(nullable: true)]
-    private string $name;
+    private string $name = '';
     #[Column(nullable: true)]
-    private string $surname;
+    private string $surname = '';
     #[Column(name: 'phone_number',nullable: true)]
-    private string $phoneNumber;
+    private string $phoneNumber = '';
     #[Column(nullable: true)]
-    private string $email;
+    private string $email = '';
     #[OneToOne(inversedBy: 'mainData')]
     private Cv $cv;
 
@@ -78,5 +77,15 @@ class CvMainData
     public function setEmail(string $email): void
     {
         $this->email = $email;
+    }
+
+    public function cv(): Cv
+    {
+        return $this->cv;
+    }
+
+    public function setCv(Cv $cv): void
+    {
+        $this->cv = $cv;
     }
 }

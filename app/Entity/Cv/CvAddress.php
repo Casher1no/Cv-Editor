@@ -92,4 +92,14 @@ class CvAddress
     {
         $this->number = $number;
     }
+
+    public function cv(): Cv
+    {
+        return $this->cv;
+    }
+
+    public function setCv(Cv $cv): void
+    {
+        $this->cv = $cv;
+    }
 }

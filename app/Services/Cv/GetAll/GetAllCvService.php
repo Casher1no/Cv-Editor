@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Services\Cv\Create;
+namespace App\Services\Cv\GetAll;
 
-use App\Factory\CvFactory;
 use App\Repository\Cv\CvRepository;
 
-class CreateCvService
+class GetAllCvService
 {
     private CvRepository $repository;
 
@@ -14,8 +13,8 @@ class CreateCvService
         $this->repository = $repository;
     }
 
-    public function execute(): void
+    public function execute(): array
     {
-        $this->repository->create(CvFactory::create());
+        return $this->repository->getAll();
     }
 }

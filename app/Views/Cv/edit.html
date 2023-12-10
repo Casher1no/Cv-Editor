@@ -1,9 +1,43 @@
 {% extends "layout.html" %}
 
 {% block title %}
-Edit CV
+CV Editor
 {% endblock %}
 
 {% block content %}
+
+<div class="sidebar">
+    <a href="/">Home</a>
+</div>
+
+<div class="content">
+    <h1 class="mt-3 mb-5" style="text-align: center">CV Editor</h1>
+
+    <div style="max-width: 600px; margin: auto">
+
+        <form>
+
+            <div class="mb-3 row">
+                <label for="cvName" class="col-sm-2 col-form-label">CV Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="cvName" value="{{ data['cv'].name() }}">
+                </div>
+            </div>
+
+
+            <h4 class="text-center">Main</h4>
+            <hr>
+
+            <div class="mb-3 row">
+                <label for="name" class="col-sm-2 col-form-label">Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="name" value="{{ data['cv'].mainData.name()}}">
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+</div>
 
 {% endblock %}

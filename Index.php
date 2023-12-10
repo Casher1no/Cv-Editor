@@ -2,6 +2,7 @@
 
 require_once 'vendor/autoload.php';
 
+use App\JsonResponse;
 use App\Redirect;
 use App\Route;
 use App\Routes;
@@ -16,8 +17,9 @@ $dotenv->load();
 
 $builder = new DI\ContainerBuilder();
 $builder->addDefinitions([
-    // TODO : add interfaces
+    \App\Repository\Cv\CvRepository::class => Di\create(\App\Repository\Cv\MySqlCvRepository::class)
 ]);
+
 $container = $builder->build();
 
 $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r) {
@@ -57,7 +59,7 @@ switch ($routeInfo[0]) {
         $method = $routeInfo[1][1];
         $vars = $routeInfo[2];
 
-        $response = (new $controller())->$method($vars);
+        $response = ($container->get($controller))->$method($vars);
 
         if ($response instanceof View) {
             try {

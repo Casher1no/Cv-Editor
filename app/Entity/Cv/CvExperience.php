@@ -19,13 +19,13 @@ class CvExperience
     #[Column(name: 'cv_id')]
     private int $cvId;
     #[Column(nullable: true)]
-    private string $name;
+    private string $name = '';
     #[Column(nullable: true)]
-    private string $profession;
+    private string $profession = '';
     #[Column(nullable: true)]
-    private string $workload;
+    private string $workload = '';
     #[Column(nullable: true)]
-    private string $experience;
+    private string $experience = '';
     #[ManyToOne(inversedBy: 'experience')]
     private Cv $cv;
 
@@ -77,5 +77,15 @@ class CvExperience
     public function setExperience(string $experience): void
     {
         $this->experience = $experience;
+    }
+
+    public function cv(): Cv
+    {
+        return $this->cv;
+    }
+
+    public function setCv(Cv $cv): void
+    {
+        $this->cv = $cv;
     }
 }

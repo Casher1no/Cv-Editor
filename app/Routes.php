@@ -11,7 +11,9 @@ class Routes
     {
         return [
             $this->createRoute('GET', '/', [CvController::class, 'selection']),
-            $this->createRoute('GET', '/cv/create', [CvController::class, 'create'])
+            $this->createRoute('GET', '/cv/create', [CvController::class, 'create']),
+            $this->createRoute('POST', '/cv/delete/{id:\d+}', [CvController::class, 'delete']),
+            $this->createRoute('GET', '/cv/edit/{id:\d+}', [CvController::class, 'edit'])
         ];
     }
 

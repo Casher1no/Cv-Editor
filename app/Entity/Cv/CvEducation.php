@@ -20,17 +20,17 @@ class CvEducation
     #[Column(name: 'cv_id')]
     private int $cvId;
     #[Column(nullable: true)]
-    private string $name;
+    private string $name = '';
     #[Column(nullable: true)]
-    private string $faculty;
+    private string $faculty = '';
     #[Column(name: 'study_program',nullable: true)]
-    private string $studyProgram;
+    private string $studyProgram = '';
     #[Column(name: 'education_level',nullable: true)]
-    private string $educationLevel;
+    private string $educationLevel = '';
     #[Column(name: 'time_spend_in_studies', nullable: true)]
-    private string $timeSpendInStudies;
+    private string $timeSpendInStudies = '';
     #[Column(nullable: true)]
-    private string $status;
+    private string $status = '';
     #[ManyToOne(inversedBy: 'education')]
     private Cv $cv;
 
@@ -102,5 +102,15 @@ class CvEducation
     public function setStatus(string $status): void
     {
         $this->status = $status;
+    }
+
+    public function cv(): Cv
+    {
+        return $this->cv;
+    }
+
+    public function setCv(Cv $cv): void
+    {
+        $this->cv = $cv;
     }
 }

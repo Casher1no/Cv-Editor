@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Services\Cv\Create;
+namespace App\Services\Cv\Delete;
 
-use App\Factory\CvFactory;
 use App\Repository\Cv\CvRepository;
 
-class CreateCvService
+class DeleteCvService
 {
     private CvRepository $repository;
 
@@ -14,8 +13,10 @@ class CreateCvService
         $this->repository = $repository;
     }
 
-    public function execute(): void
+    public function execute(DeleteCvRequest $request): void
     {
-        $this->repository->create(CvFactory::create());
+        $cv = $this->repository->get($request->id());
+
+        $this->repository->delete($cv);
     }
 }

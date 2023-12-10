@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Services\Cv\Create;
+namespace App\Services\Cv\Get;
 
-use App\Factory\CvFactory;
+use App\Entity\Cv\Cv;
 use App\Repository\Cv\CvRepository;
 
-class CreateCvService
+class GetCvService
 {
     private CvRepository $repository;
 
@@ -14,8 +14,8 @@ class CreateCvService
         $this->repository = $repository;
     }
 
-    public function execute(): void
+    public function execute(GetCvRequest $request): Cv
     {
-        $this->repository->create(CvFactory::create());
+        return $this->repository->get($request->id());
     }
 }

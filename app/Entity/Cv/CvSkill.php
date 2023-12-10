@@ -18,9 +18,9 @@ class CvSkill
     #[Column(name: 'cv_id')]
     private int $cvId;
     #[Column(nullable: true)]
-    private string $name;
+    private string $name = '';
     #[Column(nullable: true)]
-    private string $description;
+    private string $description = '';
     #[ManyToOne(inversedBy: 'skills')]
     private Cv $cv;
     public function id(): int
@@ -51,5 +51,15 @@ class CvSkill
     public function setDescription(string $description): void
     {
         $this->description = $description;
+    }
+
+    public function cv(): Cv
+    {
+        return $this->cv;
+    }
+
+    public function setCv(Cv $cv): void
+    {
+        $this->cv = $cv;
     }
 }
