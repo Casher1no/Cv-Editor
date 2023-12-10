@@ -2,7 +2,7 @@
 
 namespace App\Repository\Cv;
 
-use App\Models\Cv\Cv;
+use App\Entity\Cv\Cv;
 
 interface CvRepository
 {

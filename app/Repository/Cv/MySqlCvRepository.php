@@ -3,7 +3,7 @@
 namespace App\Repository\Cv;
 
 use App\Database\Database;
-use App\Models\Cv\Cv;
+use App\Entity\Cv\Cv;
 
 class MySqlCvRepository implements CvRepository
 {

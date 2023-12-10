@@ -2,9 +2,9 @@
 
 namespace App\Factory;
 
-use App\Models\Cv\Cv;
-use App\Models\Cv\CvAddress;
-use App\Models\Cv\CvMainData;
+use App\Entity\Cv\Cv;
+use App\Entity\Cv\CvAddress;
+use App\Entity\Cv\CvMainData;
 
 final class CvFactory
 {
