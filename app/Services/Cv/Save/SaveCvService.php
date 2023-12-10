@@ -26,6 +26,8 @@ class SaveCvService
 
         $cv->setName($data['cvName']);
 
+        $this->repository->delete($cv->mainData());
+
         $mainData = new CvMainData();
         $mainData->setName($data['name']);
         $mainData->setSurname($data['surname']);
@@ -33,6 +35,8 @@ class SaveCvService
         $mainData->setEmail($data['email']);
 
         $cv->addMainData($mainData);
+
+        $this->repository->delete($cv->address());
 
         $address = new CvAddress();
         $address->setCountry($data['country']);

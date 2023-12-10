@@ -18,5 +18,6 @@ class DeleteCvService
         $cv = $this->repository->get($request->id());
 
         $this->repository->delete($cv);
+        $this->repository->save();
     }
 }

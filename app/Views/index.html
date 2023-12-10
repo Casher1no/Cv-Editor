@@ -25,7 +25,7 @@ CV Editor
             <td>{{ cv.createdAt().format('Y-m-d H:i:s') }}</td>
             <td>
                 <a href="/cv/edit/{{ cv.id() }}" class="btn btn-outline-primary">Edit</a>
-                <a href="#" class="btn btn-outline-success">Inspect</a>
+                <a href="/cv/inspect/{{ cv.id() }}" class="btn btn-outline-success">Inspect</a>
                 <a data-cv-id="{{ cv.id() }}" onclick="confirmAndDelete()" class="btn btn-outline-danger">Delete</a>
             </td>
         </tr>

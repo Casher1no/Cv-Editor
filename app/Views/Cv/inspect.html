@@ -1,9 +1,180 @@
 {% extends "layout.html" %}
 
 {% block title %}
-Inspect CV
+Print CV
 {% endblock %}
 
 {% block content %}
+
+<div class="cv-container mt-2">
+    <h1 class="cv-title">Curriculum Vitae</h1>
+
+    <div class="cv-section">
+        <h2 class="section-title">Personal Information</h2>
+        <hr>
+        <p><strong>Name:</strong> {{ data['cv'].mainData.name }}</p>
+        <p><strong>Surname:</strong> {{ data['cv'].mainData.surname }}</p>
+        <p><strong>Phone Number:</strong> {{ data['cv'].mainData.phoneNumber }}</p>
+        <p><strong>Email:</strong> {{ data['cv'].mainData.email }}</p>
+    </div>
+
+    <div class="cv-section">
+        <h2 class="section-title">Address</h2>
+        <hr>
+        <p><strong>Country:</strong> {{ data['cv'].address.country }}</p>
+        <p><strong>Index:</strong> {{ data['cv'].address.index }}</p>
+        <p><strong>City:</strong> {{ data['cv'].address.city }}</p>
+        <p><strong>Street:</strong> {{ data['cv'].address.street }}</p>
+        <p><strong>Number:</strong> {{ data['cv'].address.number }}</p>
+    </div>
+
+    <div class="cv-section">
+        <h2 class="section-title">Education</h2>
+        <hr>
+        {% for education in data['cv'].education %}
+        <div class="education-section">
+            <p><strong>{{ education.name }}</strong></p>
+            <p>{{ education.faculty }}</p>
+            <p>{{ education.studyProgram }}</p>
+            <p>{{ education.educationLevel }} | {{ education.status }}</p>
+            <p><em>{{ education.timeSpendInStudies }}</em></p>
+            {% if not loop.last %}
+            <hr class="section-divider">
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="cv-section">
+        <h2 class="section-title">Experience</h2>
+        <hr>
+        {% for experience in data['cv'].experience %}
+        <div class="experience-section">
+            <p><strong>{{ experience.name }}</strong></p>
+            <p>{{ experience.profession }}, {{ experience.workload }}</p>
+            <p><em>{{ experience.experience }}</em></p>
+            {% if not loop.last %}
+            <hr class="section-divider">
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="cv-section">
+        <h2 class="section-title">Skills</h2>
+        <hr>
+        {% for skill in data['cv'].skills %}
+        <div class="skill-section">
+            <p><strong>{{ skill.name }}</strong></p>
+            <p>{{ skill.description }}</p>
+            {% if not loop.last %}
+            <hr class="section-divider">
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="cv-section">
+        <h2 class="section-title">Custom Fields</h2>
+        <hr>
+        {% for customField in data['cv'].customFields %}
+        <div class="custom-field-section">
+            <p><strong>{{ customField.name }}</strong></p>
+            <p>{{ customField.description }}</p>
+            {% if not loop.last %}
+            <hr class="section-divider">
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+<div style="text-align: center;" class="mt-2 mb-2">
+    <a class="btn" href="/">Go Back</a>
+    <button class="btn" id="downloadPDF">Download</button>
+</div>
+
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+<script>
+    document.getElementById('downloadPDF').addEventListener('click', function () {
+        const element = document.querySelector('.cv-container');
+
+        // Check if the element is found
+        if (element) {
+            // Use html2canvas to convert the HTML to an image
+            html2canvas(element)
+                .then(function (canvas) {
+                    // Create a link element and trigger a download
+                    const link = document.createElement('a');
+                    link.href = canvas.toDataURL('image/png');
+                    link.download = 'CV.png';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                })
+                .catch(function (error) {
+                    console.error('Error generating PDF:', error);
+                });
+        } else {
+            console.error('CV container not found.');
+        }
+    });
+</script>
+
+<style>
+    .cv-container {
+        font-family: 'Arial', sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .cv-title {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #007bff; /* Primary color */
+    }
+
+    .cv-section {
+        margin-bottom: 20px;
+    }
+
+    .section-title {
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #28a745; /* Success color */
+    }
+
+    .section-divider {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-top: 1px solid #ccc;
+    }
+
+    .education-section,
+    .experience-section,
+    .skill-section,
+    .custom-field-section {
+        margin-bottom: 10px;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-right: 10px;
+        text-decoration: none;
+        color: #fff;
+        background-color: #007bff; /* Primary color */
+        border-radius: 5px;
+        cursor: pointer;
+        border: none;
+    }
+</style>
 
 {% endblock %}

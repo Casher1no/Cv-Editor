@@ -18,7 +18,7 @@ CV Editor
 
             <div class="mb-3 row">
                 <label for="cvName" class=" col-form-label">CV Name</label>
-                <div class="col-sm-10">
+                <div class="">
                     <input type="text" class="form-control" id="cvName" name="cvName" value="{{ data['cv'].name }}">
                 </div>
             </div>
@@ -28,28 +28,28 @@ CV Editor
 
             <div class="mb-3 row">
                 <label for="name" class=" col-form-label">Name</label>
-                <div class="col-sm-10">
+                <div class="">
                     <input type="text" class="form-control" id="name" name="name"
                            value="{{ data['cv'].mainData.name }}">
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="surname" class=" col-form-label">Surname</label>
-                <div class="col-sm-10">
+                <div class="">
                     <input type="text" class="form-control" id="surname" name="surname"
                            value="{{ data['cv'].mainData.surname }}">
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="phoneNumber" class=" col-form-label">Phone Nr.</label>
-                <div class="col-sm-10">
+                <div class="">
                     <input type="text" class="form-control" id="phoneNumber" name="phoneNumber"
                            value="{{ data['cv'].mainData.phoneNumber }}">
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="email" class=" col-form-label">E-mail</label>
-                <div class="col-sm-10">
+                <div class="">
                     <input type="text" class="form-control" id="email" name="email"
                            value="{{ data['cv'].mainData.email }}">
                 </div>
@@ -60,34 +60,34 @@ CV Editor
 
             <div class="mb-3 row">
                 <label for="country" class=" col-form-label">Country</label>
-                <div class="col-sm-10">
+                <div class="">
                     <input type="text" class="form-control" id="country" name="country"
                            value="{{ data['cv'].address.country }}">
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="index" class=" col-form-label">Index</label>
-                <div class="col-sm-10">
+                <div class="">
                     <input type="text" class="form-control" id="index" name="index"
                            value="{{ data['cv'].address.index }}">
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="city" class=" col-form-label">City</label>
-                <div class="col-sm-10">
+                <div class="">
                     <input type="text" class="form-control" id="city" name="city" value="{{ data['cv'].address.city }}">
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="street" class=" col-form-label">Street</label>
-                <div class="col-sm-10">
+                <div class="">
                     <input type="text" class="form-control" id="street" name="street"
                            value="{{ data['cv'].address.street }}">
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="number" class=" col-form-label">Number</label>
-                <div class="col-sm-10">
+                <div class="">
                     <input type="text" class="form-control" id="number" name="number"
                            value="{{ data['cv'].address.number }}">
                 </div>
@@ -100,37 +100,37 @@ CV Editor
                 {% for education in data['cv'].education %}
                 <div class="education-section row mb-3 card p-2">
                     <label for="educationName" class="col-form-label">Name</label>
-                    <div class="col-sm-10">
+                    <div class="">
                         <input type="text" class="form-control" id="educationName" name="educationName[]"
                                value="{{ education.name }}">
                     </div>
 
                     <label for="faculty" class="col-form-label">Faculty</label>
-                    <div class="col-sm-10">
+                    <div class="">
                         <input type="text" class="form-control" id="faculty" name="educationFaculty[]"
                                value="{{ education.faculty }}">
                     </div>
 
                     <label for="studyProgram" class="col-form-label">Study Program</label>
-                    <div class="col-sm-10">
+                    <div class="">
                         <input type="text" class="form-control" id="studyProgram" name="studyProgram[]"
                                value="{{ education.studyProgram }}">
                     </div>
 
                     <label for="educationLevel" class="col-form-label">Education Level</label>
-                    <div class="col-sm-10">
+                    <div class="">
                         <input type="text" class="form-control" id="educationLevel" name="educationLevel[]"
                                value="{{ education.educationLevel }}">
                     </div>
 
                     <label for="timeSpendInStudies" class="col-form-label">Time Spend In Studies</label>
-                    <div class="col-sm-10">
+                    <div class="">
                         <input type="text" class="form-control" id="timeSpendInStudies" name="timeSpendInStudies[]"
                                value="{{ education.timeSpendInStudies }}">
                     </div>
 
                     <label for="status" class="col-form-label">Status</label>
-                    <div class="col-sm-10">
+                    <div class="">
                         <input type="text" class="form-control" id="status" name="status[]"
                                value="{{ education.status }}">
                     </div>
@@ -149,25 +149,25 @@ CV Editor
                 {% for experience in data['cv'].experience %}
                 <div class="experience-section row mb-3 card p-2">
                     <label for="experienceName" class="col-form-label">Name</label>
-                    <div class="col-sm-10">
+                    <div class="">
                         <input type="text" class="form-control" id="experienceName" name="experienceName[]"
                                value="{{ experience.name }}">
                     </div>
 
                     <label for="profession" class="col-form-label">Profession</label>
-                    <div class="col-sm-10">
+                    <div class="">
                         <input type="text" class="form-control" id="profession" name="profession[]"
                                value="{{ experience.profession }}">
                     </div>
 
                     <label for="workload" class="col-form-label">Workload</label>
-                    <div class="col-sm-10">
+                    <div class="">
                         <input type="text" class="form-control" id="workload" name="workload[]"
                                value="{{ experience.workload }}">
                     </div>
 
                     <label for="experience" class="col-form-label">Experience</label>
-                    <div class="col-sm-10">
+                    <div class="">
                         <input type="text" class="form-control" id="experience" name="experience[]"
                                value="{{ experience.experience }}">
                     </div>
@@ -186,13 +186,13 @@ CV Editor
                 {% for skill in data['cv'].skills %}
                 <div class="skill-section row mb-3 card p-2">
                     <label for="skillName" class=" col-form-label">Name</label>
-                    <div class="col-sm-10">
+                    <div class="">
                         <input type="text" class="form-control" id="skillName" name="skillName[]"
                                value="{{ skill.name }}">
                     </div>
 
                     <label for="description" class=" col-form-label">Description</label>
-                    <div class="col-sm-10">
+                    <div class="">
                         <input type="text" class="form-control" id="description" name="description[]"
                                value="{{ skill.description }}">
                     </div>
@@ -211,13 +211,13 @@ CV Editor
                 {% for customField in data['cv'].customFields %}
                 <div class="custom-field-section row mb-3 card p-2">
                     <label for="customFieldName" class=" col-form-label">Name</label>
-                    <div class="col-sm-10">
+                    <div class="">
                         <input type="text" class="form-control" id="customFieldName" name="customFieldName[]"
                                value="{{ customField.name }}">
                     </div>
 
                     <label for="customFieldDescription" class=" col-form-label">Description</label>
-                    <div class="col-sm-10">
+                    <div class="">
                         <input type="text" class="form-control" id="customFieldDescription" name="customFieldDescription[]"
                                value="{{ customField.description }}">
                     </div>
@@ -229,7 +229,9 @@ CV Editor
 
             <button type="button" class="btn btn-primary add-custom-field-section button-default-size">Add Custom Field</button>
 
-            <div class="d-flex justify-content-around">
+            <hr>
+
+            <div class="d-flex justify-content-around mb-5 mt-2">
                 <button type="submit" class="btn btn-success mt-2" style="width: 200px">Save</button>
             </div>
         </form>

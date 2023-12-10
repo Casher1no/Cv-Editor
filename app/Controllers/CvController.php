@@ -66,4 +66,15 @@ class CvController
 
         return new Redirect('/');
     }
+
+    public function inspect(array $vars): View
+    {
+        $service = $this->container->get(GetCvService::class);
+        $cv = $service->execute(new GetCvRequest((int)$vars['id']));
+
+        return new View('Cv/inspect', [
+            'cv' => $cv
+        ]);
+
+    }
 }
