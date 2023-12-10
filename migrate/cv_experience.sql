@@ -1,15 +1,13 @@
-create table cv_educations
+create table cv_experience
 (
-    id                    int auto_increment
+    id         int auto_increment
         primary key,
-    cv_main_id            int          not null,
-    name                  varchar(255) null,
-    faculty               varchar(255) null,
-    study_program         varchar(255) null,
-    education_level       varchar(255) null,
-    time_spend_in_studies varchar(255) null,
-    status                varchar(255) null,
-    constraint cv_educations_cv_main_id_fk
-        foreign key (cv_main_id) references cv_main (id)
-            on delete cascade
+    cv_id      int          not null,
+    name       varchar(255) null,
+    profession varchar(255) null,
+    workload   varchar(255) null,
+    experience varchar(255) null,
+    constraint cv_experience_cv_id_fk
+        foreign key (cv_id) references cv (id)
+            on update cascade on delete cascade
 );
