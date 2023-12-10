@@ -4,7 +4,7 @@
 
 ``2. create .env from .env.example and update with DB data``
 
-``3. import data and tables from Cv-Editor/migrations folder``
+``3. import tables from Cv-Editor/migrations folder``
 
 ``4. php -S localhost:8000``
 
